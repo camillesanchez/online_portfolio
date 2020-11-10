@@ -1,5 +1,6 @@
 import React from "react";
 import TimelineCard from "../components/TimelineCard";
+import { HashLink } from "react-router-hash-link";
 import { 
     Box,
     Card,
@@ -191,7 +192,7 @@ const timelineItems = [
         timelineName: "Carleton College",
         timelineDescription: "Bachelor of Arts - major: Cinema and Media Studies",
         timelineDate: "2014 - 2017",
-        timelineExpand: "Capstone Project: <i> After the Storms </i> (Film in the filmography section of the portfolio)"
+        timelineExpand: `Capstone Project: <i> After the Storms </i> (Film in the filmography section of the portfolio)`
     },
     {
         timelineIcon: <WorkIcon />,

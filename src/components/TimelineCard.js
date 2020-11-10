@@ -7,6 +7,7 @@ import {
     Typography
 } from "@material-ui/core";
 import parse from "html-react-parser";
+import { HashLink } from "react-router-hash-link";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
@@ -59,7 +60,8 @@ const TimelineCard = (props) => {
                     </Typography>
                     { showMore &&
                         <Typography className={classes.timelineItemExpand}>
-                            {parse(props.lsItem.timelineExpand)}
+                            <div dangerouslySetInnerHTML={{__html: props.lsItem.timelineExpand}}/>
+                            {/* {parse(props.lsItem.timelineExpand)} */}
                         </Typography>
                     }
                 </>
