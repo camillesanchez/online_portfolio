@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import './App.css';
 
-function App() {
+import Home from "./pages/home";
+import Overall from './pages/overall_site';
+import Filmography from './pages/filmography';
+import Photography from "./pages/photography";
+import About from './pages/about';
+
+export default function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CssBaseline/>
+
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/overall" component={Overall}/>
+      <Route exact path="/filmography" component={Filmography}/>
+      <Route exact path="/photography" component={Photography}/>
+      <Route exact path="/about" component={About}/>
+
+
+    </>
   );
 }
-
-export default App;
