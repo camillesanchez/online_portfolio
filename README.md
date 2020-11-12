@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Camille Sanchez Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Website domain: camillesanchez.fr (domain purchase automatic renewal)
 
-## Available Scripts
+## Code site in development mode
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run the app in development mode use: `yarn start`. It will open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+## Upload last draft on Github:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To check what has been changed since last draft/ on which branch we are: 
+`git status`
 
-### `yarn build`
+To add all new elements: 
+`git add .`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To add only specific elements:
+`git add [file path]`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To clear staging area:
+`git reset`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To commit those changes to the stagin area:
+`git commit -m "name of the changes done since last time"`
 
-### `yarn eject`
+To push it to github:
+`git push`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Medias Stored in a [AWS S3 Storage](https://s3.console.aws.amazon.com/s3/home?region=eu-west-3)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To add & delete medias from portfolio: 
+- log into AWS account
+- find services --> <b>S3 storage</b> 
+- click on <b>camillesanchez-portfolio-stockage</b> "storage bucket" (please note that all materials posted in this bucket are set to PUBLIC)
+- upload new media files (also called "Objects" on site) into files/
+- add their object URL links to the ./utils/constants.js file such as `export const NAME = "OBJECT URL LINK"` 
+- import it in the file you want using: `import { NAME } from "./utils/constants.js" `
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Create a build of portfolio
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Once website is ready for deployment, use `yarn build` to build the app for production to the `build` folder. Your app is ready to be deployed!
 
-## Learn More
+Select all the files in the build folder (and un-select any unecessary files) and create a zip from it.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Website Deployment using OVHcloud:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To (re-)deploy portfolio:
+- click on "camilln.cluster029.hosting.ovh.net" in the dashboard
+- select the tag "FTP - SSH" & select "FTP Explorer" (a new window will open, log in)
+- if re-deploy, click on folder "www", select all and delete.
+- for both deploy and re-deploy, click on "upload"
+- choose file (on the right side, under Archives) and drag on top of it "Archive.zip" just created above
+- click on the check mark and wait for it to process
+- for deployment, check if domain is SSL enabled in multisite tab in the dashboard
