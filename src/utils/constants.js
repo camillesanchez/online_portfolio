@@ -1,4 +1,4 @@
-// in home.js
+// in home.js & TitleCard.js
 export const After_the_Storms_short = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/After_the_Storms_short.mp4";
 
 // in PhotoGrid.js

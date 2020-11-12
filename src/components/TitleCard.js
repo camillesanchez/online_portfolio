@@ -1,11 +1,12 @@
 import React from "react";
-import After_the_Storms_short from "../files/After_the_Storms_short.mp4";
 import { 
     makeStyles,
     Typography,
     Box
 } from "@material-ui/core";
 
+// Media Import
+import { After_the_Storms_short } from "../utils/constants";
 
  // CSS Styles
  const useStyles = makeStyles(theme=>({
