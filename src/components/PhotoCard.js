@@ -26,26 +26,24 @@ const useStyles = makeStyles((theme) => ({
             width: "350px"
         },
         "& .overlay": {
-            visibility: "hidden"
+            visibility: "hidden",
+            position: "flex", 
+            top: "9%",
+            bottom: "10%",
+            right: "6%",
+            left: "6%",
+            textAlign: "left"
         },
         "&:hover": {
             "& .imageCover" : {
-                maxWidth: "900px",
-                maxHeight: "675px",
+                maxWidth: "100%",
+                maxHeight: "100%",
                 alignItems: "center",
                 justifyContent: "center",
-                opacity: "0.3"
+                opacity: "0.3",
             },
             "& .overlay": {
                 visibility: "visible",
-                position:"absolute",
-                top: "9%",
-                bottom: "10%",
-                right: "6%",
-                left: "6%",
-                textAlign: "left",
-                zIndex: 1,
-                background: "green"
             },
             "& .overlayTitle": {
                 fontFamily: "Bambi",
@@ -54,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
                 textDecoration: "underline",
                 paddingBottom: "4%",
                 color: "white",
-                background: "red",
                 [theme.breakpoints.down("sm")]: {
                     fontSize: "19px"
                 },

@@ -1,7 +1,6 @@
 import React from "react";
 import { HashLink } from "react-router-hash-link";
 import FilmGrid from '../components/FilmGrid';
-import slap from "../files/jakob_owens_CiUR8zISX60_unsplash.jpg";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import { 
     Box,
@@ -11,6 +10,9 @@ import {
     makeStyles,
     Typography
 } from "@material-ui/core";
+
+// Media Import
+import { clap } from "../utils/constants";
 
  // CSS Styles
  const useStyles = makeStyles(theme=>({
@@ -120,7 +122,7 @@ const Filmography = () => {
             <Card>
                 <CardMedia
                     component="img"
-                    image= {slap}
+                    image= {clap}
                     className={classes.imageStyling}
                     alt="Photo of a slap with info about a film.">
                     

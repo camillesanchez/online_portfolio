@@ -25,15 +25,17 @@ import WorkIcon from '@material-ui/icons/Work';
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import { GrDocumentPdf } from "react-icons/gr";
 
-import filming from '../files/filming.jpg';
-import multimediaskills from "../files/multimediaskills.png";
-import programingskills from "../files/programingskills.png";
-import languagesskills from "../files/languagesskills.png";
-import equipmentskills from "../files/equipmentskills.png";
-
-import resumeShortEN from "../files/Camille_Sanchez_Resume_EN_short.pdf";
-import resumeLongEN from "../files/Camille_Sanchez_Resume_EN.pdf";
-import resumeLongFR from "../files/Camille_Sanchez_Resume_FR.pdf";
+// Media imports
+import { 
+    camillefilming,
+    multimediaskills,
+    programingskills,
+    languagesskills,
+    equipmentskills,
+    resumeShortEN,
+    resumeLongEN,
+    resumeLongFR
+} from "../utils/constants";
 
  // CSS Styles
  const useStyles = makeStyles(theme=>({
@@ -252,7 +254,7 @@ const About = () => {
             <Card>
                 <CardMedia
                     component="img"
-                    image= {filming}
+                    image= {camillefilming}
                     className={classes.imageStyling}
                     alt="Photo of Camille Sanchez filming a tennis match at the BNP Paribas Open tennis tournament.">
                     

@@ -7,16 +7,19 @@ import {
     Typography,
     Tooltip
 } from "@material-ui/core";
-
-import microfinance from "../files/microfinance.jpg";
-import probono from "../files/probono.jpg";
-import oceanprotection from "../files/ocean_protection.jpg";
-import fellowship from "../files/fellowship.jpg";
-import veteranscare from "../files/veteranscare.jpg";
-import mac1 from "../files/mac1.jpg";
-import afterthestorms from "../files/afterthestorms.jpg";
 import FilmCard from "./FilmCard";
 import { BsChevronDoubleDown } from "react-icons/bs";
+
+// Media imports
+import { 
+    microfinance,
+    probono,
+    oceanprotection,
+    fellowship,
+    veteranscare,
+    mac1,
+    afterthestorms
+} from "../utils/constants";
 
 // CSS Styles
 const useStyles = makeStyles((theme) => ({

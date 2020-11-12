@@ -1,7 +1,6 @@
 import React from "react";
 import { HashLink } from "react-router-hash-link";
 import PhotoGrid from '../components/PhotoGrid';
-import photography_sunset from "../files/wilson_montoya_JH8hq41zSgQ_unsplash.jpg";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import { 
     Box,
@@ -11,6 +10,9 @@ import {
     makeStyles,
     Typography
 } from "@material-ui/core";
+
+// Media Import
+import { photography_sunset } from "../utils/constants";
 
  // CSS Styles
  const useStyles = makeStyles(theme=>({

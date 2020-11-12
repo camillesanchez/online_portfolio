@@ -1,5 +1,4 @@
 import React from "react";
-import After_the_Storms_short from "../files/After_the_Storms_short.mp4";
 import { HashLink } from "react-router-hash-link";
 import { 
     makeStyles,
@@ -7,6 +6,9 @@ import {
     Box
 } from "@material-ui/core";
 import SocialMediaIcons from "../components/SocialMediaIcons";
+
+// Media Import
+import { After_the_Storms_short } from "../utils/constants";
 
  // CSS Styles
  const useStyles = makeStyles(theme=>({

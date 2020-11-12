@@ -10,9 +10,12 @@ import {
 import { BsChevronDoubleDown } from "react-icons/bs";
 import PhotoCard from "./PhotoCard";
 
-import argentina from "../files/argentina.JPG";
-import carleton_sunset from "../files/carleton_sunset.jpg";
-import death_valley from "../files/death_valley.jpg";
+// Media Imports:
+import { 
+    argentina,
+    carleton_sunset,
+    death_valley
+} from "../utils/constants";
 
 const useStyles = makeStyles((theme) => ({
     textContainer: {
