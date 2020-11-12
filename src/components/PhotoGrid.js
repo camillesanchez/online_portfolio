@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { 
-    CardMedia,
     Container,
     Grid,
     IconButton,
     makeStyles,
-    Paper,
     Tooltip,
     Typography
 } from "@material-ui/core";
@@ -13,7 +11,8 @@ import { BsChevronDoubleDown } from "react-icons/bs";
 import PhotoCard from "./PhotoCard";
 
 import argentina from "../files/argentina.JPG";
-
+import carleton_sunset from "../files/carleton_sunset.jpg";
+import death_valley from "../files/death_valley.jpg";
 
 const useStyles = makeStyles((theme) => ({
     textContainer: {
@@ -62,16 +61,16 @@ const photoItems = [
         photoDesc: "Buenos Aires, Argentina"
     },
     {
-        photoCover: argentina,
-        photoAlt: "BNP Paribas Protection of the Oceans Video photo cover",
+        photoCover: death_valley,
+        photoAlt: "Photo taken in the Death Valley (CA, USA)",
         photoTitle: "",
-        photoDesc: ""
+        photoDesc: "Death Valley, California, USA"
     },
     {
-        photoCover: argentina,
-        photoAlt: "BNP Paribas Protection of the Oceans Video photo cover",
+        photoCover: carleton_sunset,
+        photoAlt: "Carleton College sunset",
         photoTitle: "",
-        photoDesc: ""
+        photoDesc: "Carleton College, Northfield, Minessota, USA"
     }
 ]
 

@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
-import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { 
     makeStyles,
     Typography,
@@ -18,7 +16,6 @@ import Footer from '../components/Footer';
  // CSS Styles
  const useStyles = makeStyles(theme=>({
     pagesContainer: {
-        // position: "absolute",
         marginTop: "0.5rem"
     },
     textContainer: {

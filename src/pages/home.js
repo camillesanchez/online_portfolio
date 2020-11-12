@@ -1,5 +1,5 @@
 import React from "react";
-// import After_the_Storms_short from "../files/After_the_Storms_short.mp4";
+import After_the_Storms_short from "../files/After_the_Storms_short.mp4";
 import { HashLink } from "react-router-hash-link";
 import { 
     makeStyles,
@@ -26,7 +26,6 @@ import SocialMediaIcons from "../components/SocialMediaIcons";
         alignItems: 'center',
         justifyContent: "center",
         height: "84%",
-        backgroundColor: "blue",
         width: "100%"
     },
     nameOverlay: {
@@ -103,9 +102,9 @@ const Home = () => {
             <>
                 
                 <div > 
-                    {/* <video autoPlay loop muted className={classes.video_background} >
+                    <video autoPlay loop muted className={classes.video_background} >
                         <source src={After_the_Storms_short} type="video/mp4" />
-                    </video> */}
+                    </video>
                 </div>
                 <SocialMediaIcons />
                 <Box className={classes.nameContainer} >

@@ -1,6 +1,5 @@
 import React from "react";
 import TimelineCard from "../components/TimelineCard";
-import { HashLink } from "react-router-hash-link";
 import { 
     Box,
     Card,
@@ -270,7 +269,7 @@ const About = () => {
                 </Typography>
                 <Typography variant="h7" className={classes.text} >
                     Paris-based producer, filmmaker and photographer, passionated by cinema and aspiring to one-day work in the industry!
-                    <br/> <br/> I am driven and a hard-worker, with lots of enthusiasm and creativity, I proud myself to always aspire to be better and to challenge myself in attempting tasks I have never done before (like creating this website for instance).
+                    <br/> <br/> I am driven and a hard-worker, with lots of enthusiasm and creativity, I proud myself to always aspire to be better and to challenge myself in attempting tasks I have never done before.
                 </Typography>
                 
                 {/* Timeline Portion */}

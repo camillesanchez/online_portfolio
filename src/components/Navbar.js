@@ -3,14 +3,12 @@ import { HashLink } from "react-router-hash-link";
 import { 
     AppBar,
     Box,
-    Icon,
     IconButton,
     List,
     ListItem,
     ListItemIcon,
     ListItemText,
     makeStyles,
-    MenuItem,
     Toolbar, 
     Typography,
     Tooltip
@@ -85,11 +83,15 @@ const useStyles = makeStyles(theme=>({
             color: "white",
             fontSize: "12px",
             textAlign: "center",
-            paddingTop: "30rem"
+            paddingTop: "0.5rem"
         },
         "& .line": {
             color: "white",
-            height: "1px",
+            backgroundColor: "white", 
+            height: "5", 
+            width: "30%", 
+            justifyContent: "center",
+            marginTop: "28.5rem"
         }
     },
     menuIcon: {
@@ -144,6 +146,7 @@ const Navbar = () => {
         right: false,
 
     })
+
     const toggleSlider = (slider, open) => () => {
         setState({...state, [slider]: open })
     }
@@ -177,8 +180,9 @@ const Navbar = () => {
                             </ListItem>
                         ))}
                     </List>
-                    <div className="line">
-                    </div>
+
+                    <hr className="line" />
+
                     <Typography className="email">
                             camille.sanchez94@gmail.com
                     </Typography>

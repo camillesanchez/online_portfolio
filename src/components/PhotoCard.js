@@ -4,12 +4,8 @@ import {
     makeStyles,
     Paper,
     CardMedia,
-    ButtonBase,
     Typography,
-    IconButton
 } from "@material-ui/core";
-import { FaYoutube, FaVimeo, FaTwitter, FaLinkedin } from "react-icons/fa";
-import { RiArticleFill } from "react-icons/ri";
 
 // CSS Styles
 const useStyles = makeStyles((theme) => ({
@@ -47,7 +43,9 @@ const useStyles = makeStyles((theme) => ({
                 bottom: "10%",
                 right: "6%",
                 left: "6%",
-                textAlign: "left"
+                textAlign: "left",
+                zIndex: 1,
+                background: "green"
             },
             "& .overlayTitle": {
                 fontFamily: "Bambi",
@@ -56,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
                 textDecoration: "underline",
                 paddingBottom: "4%",
                 color: "white",
+                background: "red",
                 [theme.breakpoints.down("sm")]: {
                     fontSize: "19px"
                 },
@@ -93,7 +92,7 @@ const PhotoCard = (props) => {
                 <CardMedia
                     component="img"
                     image= {props.lsItems.photoCover}
-                    className={classes.imageCover}
+                    className="imageCover"
                     alt= {props.lsItems.photoAlt}
                     >
                 </CardMedia>

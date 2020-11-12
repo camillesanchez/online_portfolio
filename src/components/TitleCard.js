@@ -1,5 +1,5 @@
 import React from "react";
-// import After_the_Storms_short from "../files/After_the_Storms_short.mp4";
+import After_the_Storms_short from "../files/After_the_Storms_short.mp4";
 import { 
     makeStyles,
     Typography,
@@ -21,8 +21,7 @@ import {
         alignItems: 'center',
         justifyContent: "center",
         height: "30%",
-        width: "100%",
-        backgroundColor: "blue"
+        width: "100%"
     },
     nameOverlay: {
         fontFamily: "Perpetua",
@@ -45,11 +44,11 @@ const TitleCard = () => {
 
     return (
         <>
-            {/* <div>
+            <div>
                 <video autoPlay loop muted className={classes.video_background} >
                     <source src={After_the_Storms_short} type="video/mp4" />
                 </video>
-            </div> */}
+            </div>
             <Box className={classes.nameContainer} >
                 <Typography variant="h3" className={classes.nameOverlay} >
                     Portolio
