@@ -1,6 +1,7 @@
 import React from "react";
 
 import { 
+    ButtonBase,
     makeStyles,
     Paper,
     CardMedia,
@@ -27,12 +28,6 @@ const useStyles = makeStyles((theme) => ({
         },
         "& .overlay": {
             visibility: "hidden",
-            position: "flex", 
-            top: "9%",
-            bottom: "10%",
-            right: "6%",
-            left: "6%",
-            textAlign: "left"
         },
         "&:hover": {
             "& .imageCover" : {
@@ -44,6 +39,12 @@ const useStyles = makeStyles((theme) => ({
             },
             "& .overlay": {
                 visibility: "visible",
+                position: "absolute", 
+                top: "9%",
+                bottom: "10%",
+                right: "6%",
+                left: "6%",
+                textAlign: "left"
             },
             "& .overlayTitle": {
                 fontFamily: "Bambi",
@@ -85,23 +86,27 @@ const PhotoCard = (props) => {
 
     return (
         <>
-            <Paper className={classes.paper}>
-                <CardMedia
-                    component="img"
-                    image= {props.lsItems.photoCover}
-                    className="imageCover"
-                    alt= {props.lsItems.photoAlt}
-                    >
-                </CardMedia>
-                <div className="overlay">
-                        <Typography className="overlayTitle">
-                            {props.lsItems.photoTitle}
-                        </Typography>
-                        <Typography className="overlayDesc">
-                            {props.lsItems.photoDesc}
-                        </Typography>
-                </div>
-            </Paper>
+            <ButtonBase 
+                onClick={() => window.open(props.lsItems.photoCover)}
+                >
+                <Paper className={classes.paper}>
+                    <CardMedia
+                        component="img"
+                        image= {props.lsItems.photoCover}
+                        className="imageCover"
+                        alt= {props.lsItems.photoAlt}
+                        >
+                    </CardMedia>
+                    <div className="overlay">
+                            <Typography className="overlayTitle">
+                                {props.lsItems.photoTitle}
+                            </Typography>
+                            <Typography className="overlayDesc">
+                                {props.lsItems.photoDesc}
+                            </Typography>
+                    </div>
+                </Paper>
+            </ButtonBase>
         </>
     )
 }

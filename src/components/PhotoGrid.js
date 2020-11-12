@@ -60,19 +60,19 @@ const photoItems = [
     {
         photoCover: argentina,
         photoAlt: "Photo of Buenos Aires view over water.",
-        photoTitle: "Photoscape",
+        photoTitle: "Reflection of Buenos Aires' Business Center",
         photoDesc: "Buenos Aires, Argentina"
     },
     {
         photoCover: death_valley,
         photoAlt: "Photo taken in the Death Valley (CA, USA)",
-        photoTitle: "",
+        photoTitle: "Beautiful Sight on a Climb",
         photoDesc: "Death Valley, California, USA"
     },
     {
         photoCover: carleton_sunset,
         photoAlt: "Carleton College sunset",
-        photoTitle: "",
+        photoTitle: "Sunset Walk on Campus",
         photoDesc: "Carleton College, Northfield, Minessota, USA"
     }
 ]

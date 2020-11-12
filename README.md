@@ -11,6 +11,9 @@ You will also see any lint errors in the console.
 
 ## Upload last draft on Github:
 
+To add a connection between desktop and [github](https://docs.github.com/en/free-pro-team@latest/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line):
+`git remote add [insert remote repository URL]`
+
 To check what has been changed since last draft/ on which branch we are: 
 `git status`
 
