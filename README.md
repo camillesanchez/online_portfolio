@@ -2,7 +2,7 @@
 
 Website domain: camillesanchez.fr (domain purchase automatic renewal)
 
-## Code site in development mode
+## Code React App in development mode
 
 To run the app in development mode use: `yarn start`. It will open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -29,10 +29,10 @@ To commit those changes to the stagin area:
 To push it to github:
 `git push`
 
-## Medias Stored in a [AWS S3 Storage](https://s3.console.aws.amazon.com/s3/home?region=eu-west-3)
+## Medias Stored in a AWS S3 Storage
 
 To add & delete medias from portfolio: 
-- log into AWS account
+- log into [AWS account](https://aws.amazon.com/)
 - find services --> <b>S3 storage</b> 
 - click on <b>camillesanchez-portfolio-stockage</b> "storage bucket" (please note that all materials posted in this bucket are set to PUBLIC)
 - upload new media files (also called "Objects" on site) into files/
@@ -43,7 +43,7 @@ To add & delete medias from portfolio:
 
 Once website is ready for deployment, use `yarn build` to build the app for production to the `build` folder. Your app is ready to be deployed!
 
-Select all the files in the build folder (and un-select any unecessary files) and create a zip from it.
+Select all the files in the build folder (and un-select any unecessary files) and create a .zip from it.
 
 ## Website Deployment using OVHcloud:
 
