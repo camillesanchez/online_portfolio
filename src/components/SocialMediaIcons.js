@@ -17,12 +17,18 @@ const useStyles = makeStyles(theme=>({
     },
     socialIconsBox:{
         position: "absolute",
-        right: "1%"
-    },
-    socialIcon: {
-        margin: "auto 0.2rem",
-        color: "white",
-        fontSize: "30px"
+        right: "0%",
+        "& .socialIcon" : {
+            margin: "0 0.2rem",
+            color: "white",
+            fontSize: "27px",
+            [theme.breakpoints.down("md")]: {
+                fontSize: "20px"
+            },
+            [theme.breakpoints.down("xs")]: {
+                fontSize: "18px"
+            }
+        }
     }
 }))
 
@@ -36,19 +42,20 @@ const SocialMediaIcons = () => {
             <Box component= "nav">
 
                 <Toolbar>
+                    
                     <Box component="div" className={classes.socialIconsBox}>
-                        <IconButton className={classes.socialIcon} onClick={() => window.open("https://www.linkedin.com/in/camille-sanchez-media/")}>
+                        <IconButton className="socialIcon" onClick={() => window.open("https://www.linkedin.com/in/camille-sanchez-media/")}>
                             < FaLinkedin />
                         </IconButton>
                         
-                        <IconButton className={classes.socialIcon} onClick={() => window.open("https://www.instagram.com/cinecamia94_photo_video/")}>
+                        <IconButton className="socialIcon" onClick={() => window.open("https://www.instagram.com/cinecamia94_photo_video/")}>
                             <FaInstagram /> 
                         </IconButton>
 
                         <>
                             <CopyToClipboard text="camille.sanchez94@gmail.com">
                                 <Tooltip title="Copy Email to Clipboard">
-                                    <IconButton className={classes.socialIcon}> 
+                                    <IconButton className="socialIcon"> 
                                         <MdEmail /> 
                                     </IconButton>
                                 </Tooltip>
