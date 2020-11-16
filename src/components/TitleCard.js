@@ -18,17 +18,17 @@ import { After_the_Storms_short } from "../utils/constants";
         maxHeight: "20%",
         objectFit: "cover",
         zIndex: "-1",
-        // [theme.breakpoints.up("md")]: {
-        //     maxHeight: "30%"
-        // }
+        [theme.breakpoints.up("md")]: {
+            maxHeight: "30%"
+        }
     },
     textContainer: {
         height: "20vh", 
         width: "100%", 
         zIndex: "1",
-        // [theme.breakpoints.up("md")]: {
-        //     height: "30vh"
-        // },
+        [theme.breakpoints.up("md")]: {
+            height: "30vh"
+        },
         "& .topBottomContainers": {
             alignItems: "center",
             height: "15%",
