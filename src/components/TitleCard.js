@@ -22,7 +22,7 @@ import { After_the_Storms_short } from "../utils/constants";
             maxHeight: "30%"
         }
     },
-    textContainer: {
+    container: {
         height: "20vh", 
         width: "100%", 
         zIndex: "1",
@@ -81,7 +81,7 @@ const TitleCard = () => {
                     <source src={After_the_Storms_short} type="video/mp4" />
                 </video>
             </div>
-            <div className={classes.textContainer}>
+            <div className={classes.container}>
                 <Grid container className="topBottomContainers" >
                     <Grid item xs={12} />
                 </Grid>
