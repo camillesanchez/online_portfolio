@@ -6,7 +6,6 @@ import {
     Box,
     Container
 } from "@material-ui/core";
-import Navbar from "../components/Navbar";
 import TitleCard from "../components/TitleCard";
 import About from './about';
 import Filmography from "../pages/filmography";
@@ -82,9 +81,7 @@ const Overall = () => {
 
     return (
         <>
-            
-            <Navbar/>
-
+        
             <section id= "#top">
                 <TitleCard />
             </section>

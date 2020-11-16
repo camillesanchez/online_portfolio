@@ -1,32 +1,56 @@
 // in home.js & TitleCard.js
-export const After_the_Storms_short = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/After_the_Storms_short.mp4";
+import After_the_Storms_short from "../media_files/After_the_Storms_short.mp4";
 
 // in PhotoGrid.js
-export const argentina = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/argentina.JPG";
-export const carleton_sunset = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/carleton_sunset.jpg";
-export const death_valley = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/death_valley.jpg";
+import argentina from "../media_files/argentina.jpg";
+import carleton_sunset from "../media_files/carleton_sunset.jpg";
+import death_valley from "../media_files/death_valley.jpg";
 
 // in FilmGrid.js
-export const microfinance = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/microfinance.jpg";
-export const probono = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/probono.jpg";
-export const oceanprotection = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/ocean_protection.jpg";
-export const fellowship = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/fellowship.jpg";
-export const veteranscare = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/veteranscare.jpg";
-export const mac1 = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/mac1.jpg";
-export const afterthestorms = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/afterthestorms.jpg";
+import microfinance from "../media_files/microfinance.jpg";
+import probono from "../media_files/probono.jpg";
+import oceanprotection from "../media_files/ocean_protection.jpg";
+import fellowship from "../media_files/fellowship.jpg";
+import veteranscare from "../media_files/veteranscare.jpg";
+import mac1 from "../media_files/mac1.jpg";
+import afterthestorms from "../media_files/afterthestorms.jpg";
 
 // in about.js
-export const camillefilming = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/filming.jpg";
-export const multimediaskills = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/multimediaskills.png";
-export const programingskills = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/programingskills.png";
-export const languagesskills = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/languagesskills.png";
-export const equipmentskills = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/equipmentskills.png";
-export const resumeShortEN = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/Camille_Sanchez_Resume_EN_short.pdf";
-export const resumeLongEN = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/Camille_Sanchez_Resume_EN.pdf";
-export const resumeLongFR = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/Camille_Sanchez_Resume_FR.pdf";
+import camillefilming from "../media_files/filming.jpg";
+import multimediaskills from "../media_files/multimediaskills.png";
+import programingskills from "../media_files/programingskills.png";
+import languagesskills from "../media_files/languagesskills.png";
+import equipmentskills from "../media_files/equipmentskills.png";
+import resumeShortEN from "../media_files/Camille_Sanchez_Resume_EN_short.pdf";
+import resumeLongEN from "../media_files/Camille_Sanchez_Resume_EN.pdf";
+import resumeLongFR from "../media_files/Camille_Sanchez_Resume_FR.pdf";
 
 // in filmography.js
-export const clap = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/jakob_owens_CiUR8zISX60_unsplash.jpg";
+import clap from "../media_files/jakob_owens_CiUR8zISX60_unsplash.jpg";
 
 // in photography.js
-export const photography_sunset = "https://camillesanchez-portfolio-stockage.s3.eu-west-3.amazonaws.com/files/wilson_montoya_JH8hq41zSgQ_unsplash.jpg";
+import photography_sunset from "../media_files/wilson_montoya_JH8hq41zSgQ_unsplash.jpg";
+
+export { 
+    After_the_Storms_short,
+    argentina,
+    carleton_sunset,
+    death_valley,
+    microfinance,
+    probono,
+    oceanprotection,
+    fellowship,
+    veteranscare,
+    mac1,
+    afterthestorms,
+    camillefilming,
+    multimediaskills,
+    programingskills,
+    languagesskills,
+    equipmentskills,
+    resumeShortEN,
+    resumeLongEN,
+    resumeLongFR,
+    clap,
+    photography_sunset
+}

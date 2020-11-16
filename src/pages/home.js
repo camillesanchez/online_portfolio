@@ -3,7 +3,6 @@ import { HashLink } from "react-router-hash-link";
 import { 
     makeStyles,
     Typography,
-    Box,
     Grid
 } from "@material-ui/core";
 import SocialMediaIcons from "../components/SocialMediaIcons";
@@ -23,85 +22,6 @@ import { After_the_Storms_short } from "../utils/constants";
         transform: "translate(-50%,-50%)",
         zindex: "-1"
     },
-    // nameContainer: {
-    //     position: "absolute",
-    //     display: "flex",
-    //     alignItems: 'center',
-    //     justifyContent: "center",
-    //     height: "80%",
-    //     width: "90%",
-    //     right: "5%",
-    //     top: "10%",
-    //     bottom: "5%",
-    //     // background: "red",
-    // },
-    // nameOverlay: {
-    //     position: "absolute",
-    //     fontFamily: "Perpetua",
-    //     fontWeight: "bold",
-    //     fontSize: "5vw",
-    //     letterSpacing: 16,
-    //     color: "white",
-    //     textAlign: "center",
-    //     marginRight: "5%",
-    //     marginLeft: "5%",
-    // },
-    // cornerTextOverlay: {
-    //     fontFamily: "Perpetua",
-    //     fontWeight: "bold",
-    //     fontSize: "3vw",
-    //     letterSpacing: 6,
-    //     [theme.breakpoints.up("md")]: {
-    //         fontSize: "2vw"
-    //     },
-    //     [theme.breakpoints.down("xs")]: {
-    //         fontSize: "4vw"
-    //     }
-    // },
-    // cornerTL:{
-    //     position: "absolute",
-    //     left: "10%",
-    //     top: "0%",
-    //     margin: "2%",
-    //     color: "white",
-    //     textDecoration: "none",
-    //     background: "green",
-    //     [theme.breakpoints.up("lg")]: {
-    //         left: "10rem"
-    //     },
-    //     [theme.breakpoints.down("xs")]: {
-    //         left: "3%",
-    //         top: "2%"
-    //     }
-    // },
-    // cornerBR: {
-    //     position: "absolute",
-    //     right: "10%",
-    //     bottom: "5%",
-    //     margin: "2%",
-    //     color: "white",
-    //     textDecoration: "none",
-    //     [theme.breakpoints.up("lg")]: {
-    //         right: "10rem"
-    //     },
-    //     [theme.breakpoints.down("xs")]: {
-    //         right: "3%"
-    //     }
-    // },
-    // cornerBL: {
-    //     position: "absolute",
-    //     left: "10%",
-    //     bottom: "5%",
-    //     margin: "2%",
-    //     color: "white",
-    //     textDecoration: "none",
-    //     [theme.breakpoints.up("lg")]: {
-    //         left: "10rem"
-    //     },
-    //     [theme.breakpoints.down("xs")]: {
-    //         left: "3%"
-    //     }
-    // },
     centerContainers: {
         "& .textContainer": {
             display: "flex",
@@ -119,6 +39,9 @@ import { After_the_Storms_short } from "../utils/constants";
                 },
                 [theme.breakpoints.down("sm")]: {
                     fontSize: "40px"
+                },
+                [theme.breakpoints.down("xs")]: {
+                    fontSize: "25px"
                 }
             }
         },
@@ -140,20 +63,14 @@ import { After_the_Storms_short } from "../utils/constants";
             },
             [theme.breakpoints.down("sm")]: {
                 fontSize: "18px",
+            },
+            [theme.breakpoints.down("xs")]: {
+                fontSize: "12px",
+                letterSpacing: 4
             }
         }
     }
  }))
-
- const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-
- const getPixelHeight = (percentage) => {
-    // percentage should be a number between 0 and 1
-    const pixelHeight = height * percentage;
-    console.log(height);
-    console.log(pixelHeight);
-    return pixelHeight;
- }
 
 // Home Function
 const Home = () => {
@@ -169,11 +86,11 @@ const Home = () => {
                     <source src={After_the_Storms_short} type="video/mp4" />
                 </video>
             </div>
-            <div style={{height: "100%"}}>
-                <Grid container className={classes.topBottomContainers} style={{height: "calc(10%)"}}>
+            <div style={{height: "100vh"}}>
+                <Grid container className={classes.topBottomContainers} style={{height: "10%"}}>
                     <Grid item xs />
                     <Grid item xs={5} align="left" className="textContainer" >
-                        <HashLink className="textFormatting" style={{zIndex: "1", background: "yellow" }} to="/overall#about" >About Me</HashLink>
+                        <HashLink className="textFormatting" style={{zIndex: "1" }} to="/overall#about" >About Me</HashLink>
                     </Grid>
                     <Grid item xs />
                     <Grid item xs={5} style={{zIndex: "1" }}>
@@ -181,18 +98,16 @@ const Home = () => {
                     </Grid>
                     <Grid item xs/>
                 </Grid>
-                <Grid container align="center" className={classes.centerContainers} style={{height: "calc(80%)"}}>
-                        <Grid item xs>
-                        </Grid>
+                <Grid container align="center" className={classes.centerContainers} style={{height: "80%"}}>
+                        <Grid item xs/>
                         <Grid item xs={10} className="textContainer">
                                 <Typography variant="h3" className="textFormatting" >
                                     CAMILLE SANCHEZ
                                 </Typography>
                         </Grid>
-                        <Grid item xs >
-                        </Grid>
+                        <Grid item xs />
                 </Grid>
-                <Grid container className={classes.topBottomContainers} style={{height: "calc(10%)"}} >
+                <Grid container className={classes.topBottomContainers} style={{height: "10%"}} >
                     <Grid item xs />
                     <Grid item xs={5} align="left" className="textContainer" >
                         <HashLink className="textFormatting" to="/overall#photography" >Photography</HashLink>
