@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { 
-    Container,
     Grid,
     IconButton,
     makeStyles,
@@ -18,12 +17,6 @@ import {
 } from "../utils/constants";
 
 const useStyles = makeStyles((theme) => ({
-    textContainer: {
-        padding: "2rem 8rem 1.5rem",
-        [theme.breakpoints.down("sm")]: {
-            padding: "1.5rem 4rem 1rem"
-        }
-    },
     button: {
         position: "relative"
     },
@@ -98,20 +91,18 @@ const PhotoGrid = () => {
     const classes = useStyles()
 
     return (
-        <>
-            <Container className={classes.textContainer}>
-                <Grid container >
-                    <Grid item xs={12}>
-                        <Grid container justify="center" spacing={2}>
-                            {photoItemsShown(gridNumber).map((lsItems, key) => (
-                                <Grid key={key} item>
-                                    <PhotoCard lsItems={lsItems} />  
-                                </Grid>
-                            ))}
-                        </Grid>
+        <>  
+            <Grid container >
+                <Grid item xs={12}>
+                    <Grid container justify="center" spacing={2}>
+                        {photoItemsShown(gridNumber).map((lsItems, key) => (
+                            <Grid key={key} item>
+                                <PhotoCard lsItems={lsItems} />  
+                            </Grid>
+                        ))}
                     </Grid>
                 </Grid>
-            </Container>
+            </Grid>
 
             { gridNumber < photoItems.length &&
                     <div className={classes.button}>

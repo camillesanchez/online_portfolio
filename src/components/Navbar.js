@@ -26,93 +26,117 @@ import MobilLeftMenuSlider from "@material-ui/core/Drawer";
  // CSS Styles
 const useStyles = makeStyles(theme=>({
     navbarBox: {
-        background: "black"
-    },
-    navbarText: {
-        fontFamily: "Georgia"
-    },
-    menuSliderContainer: {
-        width: "250px",
-        height: "100%",
         background: "black",
-        position: "flex",
-    },
-    menuTitle: {
-        color: "white",
-        textAlign: "center",
-        padding: "1rem",
-        paddingTop: "2rem",
-        "& .top": {
-            fontSize: "23px",
-        },
-        "& .bottom": {
-            fontSize: "18px",
-        }
-    },
-    menuContainer: {
-        padding: "1rem",
-        top:"3rem",
-        left: "1rem",
-        right: "1rem",
-        height: "100%",
-        "& .menuTitle": {
-            color: "white",
-            textAlign: "center",
-            padding: "1rem",
-            paddingTop: "2rem",
-            "& .top": {
-                fontSize: "20px",
-                fontWeight: "bold"
-            },
-            "& .bottom": {
-                fontSize: "18px",
-                paddingBottom: "1rem"
-            }
-        },
-        "& .menuText" : {
-            color: "white",
-            fontSize: "18px",
-            textDecoration: "none" 
-        },
-        "& .menuIcon" : {
+        "& .menuHamburgerIcon": {
             color: "white",
             fontSize: "22px",
-            padding: "0"
+            padding: "0",
+            [theme.breakpoints.down("sm")]: {
+                fontSize: "18px"
+            }
         },
-        "& .email": {
-            color: "white",
-            fontSize: "12px",
-            textAlign: "center",
-            paddingTop: "0.5rem"
+        "& .navbarText": {
+            fontFamily: "Georgia",
+            fontSize: "25px",
+            [theme.breakpoints.down("sm")]: {
+                fontSize: "17px",
+            } 
         },
-        "& .line": {
-            color: "white",
-            backgroundColor: "white", 
-            height: "5", 
-            width: "30%", 
-            justifyContent: "center",
-            marginTop: "28.5rem"
-        }
+        "& .socialIconsBox":{
+            position: "absolute",
+            right: "3%",
+            "& .socialIcon": {
+                padding: "15px",
+                color: "white",
+                fontSize: "29px",
+                [theme.breakpoints.down("sm")]: {
+                    padding: "8px",
+                    fontSize: "22px",
+                },
+                [theme.breakpoints.down("xs")]: {
+                    padding: "5px",
+                    fontSize: "19px",
+                }
+            }
+        },
     },
-    menuIcon: {
-        color: "white",
-        fontSize: "22px",
-        padding: "0"
-    },
-    socialIconsBox:{
-        position: "absolute",
-        right: "1%",
-        "& .socialIcon": {
-            margin: "auto 0.2rem",
-            color: "white",
-            fontSize: "22px"
-        }
-    },
-    pageWrap: {
-        textAlign: "center",
-        overflow: "auto",
-        top: "45%",
-        position: "relative"
+    menuSliderContainer: {
+        width: "300px",
+        minHeight: "100%",
+        background: "black",
+        position: "flex",
+        [theme.breakpoints.down("sm")]: {
+            width: "200px",
+        },
+        "& .menuContainer": {
+            margin: "10%",
+            // top:"3rem",
+            // left: "1rem",
+            // right: "1rem",
+            // height: "100vh",
+            paddingBottom: "30%",
+            background: "yellow",
+            "& .menuTitle": {
+                color: "red",
+                textAlign: "center",
+                padding: "10% 0",
+                "& .top": {
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    [theme.breakpoints.down("sm")]: {
+                        fontSize: "18px"
+                    }
+                },
+                "& .bottom": {
+                    fontSize: "18px",
+                    [theme.breakpoints.down("sm")]: {
+                        fontSize: "15px"
+                    }
+                }
+            },
+            "& .menuLinks": {
+                textDecoration: "none",
+                "& .menuText" : {
+                    color: "white",
+                    fontSize: "18px",
+                    // marginLeft: "-40px",
+                    [theme.breakpoints.down("sm")]: {
+                        color: "green",
+                        background: "pink",
+                        fontSize: "40px",
+                    } 
+                }
+            },
+            "& .menuIcon" : {
+                color: "white",
+                fontSize: "22px",
+                padding: "0",
+                display: "inline",
+                [theme.breakpoints.down("sm")]: {
+                    background: "orange",
+                    fontSize: "19px",
+                } 
+            },
+            "& .emailBlock": {
+                background: "orange",
+                // height: "100%",
+                paddingBottom: "10%",
+                "& .line": {
+                    color: "white",
+                    backgroundColor: "white", 
+                    height: "5", 
+                    width: "30%", 
+                    justifyContent: "center",
+                },
+                "& .email": {
+                    color: "white",
+                    fontSize: "12px",
+                    textAlign: "center",
+                    paddingTop: "0.5rem"
+                }
+            }
+
+        },
     }
 }))
 
@@ -155,7 +179,7 @@ const Navbar = () => {
     const sideList = slider => (
         <>
             <Box component ="div" onClick={toggleSlider(slider,false)} className={classes.menuSliderContainer}>
-                <div className={classes.menuContainer}> 
+                <div className="menuContainer"> 
                     <div className="menuTitle">
                         <Typography className="top">
                             Camille Sanchez
@@ -166,26 +190,36 @@ const Navbar = () => {
                     </div>
                     <List>
                         {menuItems.map((lsItems, key) => (
-                            <ListItem button key={key} >
-                                <HashLink className= "menuIcon" to={lsItems.pageLink} >
-                                    <ListItemIcon className= "menuIcon" >
-                                        {lsItems.pageIcon}
-                                    </ListItemIcon>
-                                </HashLink>
-                                <HashLink className= "menuText" to={lsItems.pageLink} >
-                                    <ListItemText>
-                                        {lsItems.pageName}
-                                    </ListItemText>
-                                </HashLink>
-                            </ListItem>
+
+                                <ListItem>
+
+                                        <div>
+                                        {/* className= "menuIcon" */}
+                                            <ListItemIcon className= "menuIcon" >
+                                                {lsItems.pageIcon}
+                                            </ListItemIcon>
+                                            {/* className= "menuText" */}
+                                            <HashLink key={key} to={lsItems.pageLink} className="menuLinks" >  
+
+                                                <ListItemText className= "menuText">
+                                                    {lsItems.pageName}
+                                                </ListItemText>
+                                            </HashLink>
+                                        </div>
+                                    
+                                </ListItem>
+                            
+
                         ))}
                     </List>
+                    <div className= "emailBlock"> 
+                    
+                        <hr className="line" />
 
-                    <hr className="line" />
-
-                    <Typography className="email">
-                            camille.sanchez94@gmail.com
-                    </Typography>
+                        <Typography className="email">
+                                camille.sanchez94@gmail.com
+                        </Typography>
+                    </div>
                 </div>
             </Box>
         </>
@@ -198,10 +232,10 @@ const Navbar = () => {
                 <AppBar position= "static" className={classes.navbarBox} >
                     <Toolbar>
                         <IconButton onClick={toggleSlider("left", true)}>
-                            <HiMenu className={classes.menuIcon} />
+                            <HiMenu className="menuHamburgerIcon" />
                         </IconButton>
 
-                        <Typography variant= "h5" className={classes.navbarText}>
+                        <Typography variant= "h5" className="navbarText">
                             Camille Sanchez
                         </Typography>
                         <MobilLeftMenuSlider 
@@ -211,7 +245,7 @@ const Navbar = () => {
                             >
                             {sideList("left")}
                         </MobilLeftMenuSlider>
-                        <Box component="div" className={classes.socialIconsBox}>
+                        <Box component="div" className="socialIconsBox">
                             <IconButton className="socialIcon" onClick={() => window.open("https://www.linkedin.com/in/camille-sanchez-media/")}>
                                 <FaLinkedin />
                             </IconButton>

@@ -2,17 +2,20 @@ import React from "react";
 import { 
     makeStyles,
     Typography,
-    Box,
     Grid
 } from "@material-ui/core";
 import Navbar from "../components/Navbar";
+import QuoteCard from "../components/QuoteCard";
 
 // Media Import
 import { After_the_Storms_short } from "../utils/constants";
 
  // CSS Styles
  const useStyles = makeStyles(theme=>({
-    video_background: {
+    overall: {
+        paddingBottom: "2%"
+    },
+    videoBackground: {
         position: "absolute",
         width: "100%",
         maxHeight: "20%",
@@ -22,9 +25,9 @@ import { After_the_Storms_short } from "../utils/constants";
             maxHeight: "30%"
         }
     },
-    container: {
+    videoTextContainer: {
         height: "20vh", 
-        width: "100%", 
+        width: "100vw", 
         zIndex: "1",
         [theme.breakpoints.up("md")]: {
             height: "30vh"
@@ -35,7 +38,7 @@ import { After_the_Storms_short } from "../utils/constants";
         },
         "& .centerContainer": {
             height: "70%",
-            "& .textContainer": {
+            "& .textBox": {
                 display: "flex",
                 alignItems: 'center',
                 justifyContent: "center",
@@ -50,7 +53,7 @@ import { After_the_Storms_short } from "../utils/constants";
                         letterSpacing: 12
                     },
                     [theme.breakpoints.down("xs")]: {
-                        fontSize: "40px",
+                        fontSize: "30px",
                         letterSpacing: 12,
                     }  
                 }
@@ -59,15 +62,13 @@ import { After_the_Storms_short } from "../utils/constants";
     }
  }))
 
- const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
-const getPixelWidth = (percentage) => {
-    // percentage should be a number between 0 and 1
-    const pixelWidth = width * percentage;
-    console.log(width);
-    console.log(pixelWidth);
-    return pixelWidth;
-}
+ // Content
+const quote = [
+    {
+        itemAuthor: "Annie Leibovitz",
+        itemText: "One doesn’t stop seeing. One doesn’t stop framing. It doesn’t turn off and turn on. It’s on all the time."
+    }
+]
 
 const TitleCard = () => {
 
@@ -76,27 +77,42 @@ const TitleCard = () => {
     return (
         < >
             <Navbar/>
-            <div >
-                <video autoPlay loop muted className={classes.video_background} >
-                    <source src={After_the_Storms_short} type="video/mp4" />
-                </video>
-            </div>
-            <div className={classes.container}>
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
-                </Grid>
-                <Grid container align="center" className="centerContainer">
-                        <Grid item xs style={{ background: "red"}}/>
-                        <Grid item xs={10} className="textContainer">
-                            <Typography variant="h3" className="textFormatting" >
-                                Portfolio
-                            </Typography>
-                        </Grid>
-                        <Grid item xs style={{ background: "red"}} />
-                </Grid>
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
-                </Grid>
+
+            <div className={classes.overall}>
+
+                {/* Video */}
+                <div >
+                    <video autoPlay loop muted className={classes.videoBackground} >
+                        <source src={After_the_Storms_short} type="video/mp4" />
+                    </video>
+                </div>
+
+                {/* Text over video */}
+                <div className={classes.videoTextContainer}>
+                    <Grid container className="topBottomContainers" >
+                        <Grid item xs={12} />
+                    </Grid>
+                    <Grid container align="center" className="centerContainer">
+                            <Grid item xs />
+                            <Grid item xs={10} className="textBox">
+                                <Typography variant="h3" className="textFormatting" >
+                                    Portfolio
+                                </Typography>
+                            </Grid>
+                            <Grid item xs />
+                    </Grid>
+                    <Grid container className="topBottomContainers" >
+                        <Grid item xs={12} />
+                    </Grid>
+                </div>
+
+                <>
+                    {/* Quote Card */}
+                    {quote.map((lsItem, key) => (
+                        <QuoteCard key={key} lsItem={lsItem} />
+                    ))}
+                </>
+
             </div>
         </>
 

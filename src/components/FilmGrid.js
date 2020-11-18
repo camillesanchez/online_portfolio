@@ -24,9 +24,9 @@ import {
 // CSS Styles
 const useStyles = makeStyles((theme) => ({
     textContainer: {
-        padding: "2rem 8rem 4rem",
+        padding: "0rem 8rem",
         [theme.breakpoints.down("sm")]: {
-            padding: "1.5rem 4rem 1rem"
+            padding: "0rem 4rem"
         }
     },
     paper: {

@@ -1,12 +1,10 @@
 import React from "react";
 import { HashLink } from "react-router-hash-link";
 import PhotoGrid from '../components/PhotoGrid';
-import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+import PhotoTitle from "../components/PhotoTitle";
+import IntroParagraph from "../components/IntroParagraph";
+import QuoteCard from "../components/QuoteCard";
 import { 
-    Box,
-    Card,
-    CardMedia,
-    Container, 
     makeStyles,
     Typography
 } from "@material-ui/core";
@@ -16,76 +14,10 @@ import { photography_sunset } from "../utils/constants";
 
  // CSS Styles
  const useStyles = makeStyles(theme=>({
-    imageStyling: {
-        position: "absolute",
-        height: "50%",
-        [theme.breakpoints.down("sm")]: {
-            height: "40%"
-        }
-    },
-    nameContainer:{
-        position: "absolute",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        height: "50%",
-        [theme.breakpoints.down("sm")]: {
-            height: "40%"
-        }
-    },
-    textOverlay: {
-        fontFamily: "Bambi",
-        fontWeight: "bold",
-        fontSize: "90px",
-        color: "white",
-        [theme.breakpoints.down("md")]: {
-            fontSize: "80px"
-        },
-        [theme.breakpoints.down("sm")]: {
-            fontSize: "50px"
-        }
-    },
     textContainer: {
         padding: "2rem 8rem 3rem",
         [theme.breakpoints.down("sm")]: {
             padding: "1.5rem 4rem 2rem"
-        }
-    },
-    quoteContainer: {
-        position: "flex",
-        justifyContent: "center",
-        padding: "1rem",
-    },
-    introText: {
-        marginTop: "27rem",
-        [theme.breakpoints.down("sm")]: {
-            marginTop: "22rem"
-        }
-    },
-    authorText: {
-        fontSize: "15px",
-        textAlign: "right",
-        fontWeight: "bold",
-        marginLeft: "1rem",
-        marginRight: "10%",
-        [theme.breakpoints.down("sm")]: {
-            fontSize: "13px",
-        }
-    },
-    quoteText: {
-        fontSize: "16.5px",
-        marginLeft: "1rem",
-        marginRight: "1rem",
-        [theme.breakpoints.down("sm")]: {
-            fontSize: "15px",
-        }
-    },
-    rightQuote: {
-        marginLeft: "95%", 
-        fontSize: "20px",
-        [theme.breakpoints.down("xs")]: {
-            marginLeft: "89%"
         }
     },
     backTopContainer: {
@@ -105,6 +37,16 @@ import { photography_sunset } from "../utils/constants";
 }))
 
 // Content
+const header = [
+    {
+        headerName: "PHOTOGRAPHY",
+        headerAlt: "Photo of a person taking a photo of the sunset.",
+        image: photography_sunset
+    }
+];
+
+const introString = "Below I have selected a few photos I took (and retouched). You can find more of my photo-work on my Instagram (linked in the menu).";
+
 const quote = [
     {
         itemAuthor: "Elliott Erwitt",
@@ -117,45 +59,23 @@ const Photography = () => {
 
     return (
         <>
-        <Card>
-                <CardMedia
-                    component="img"
-                    image= {photography_sunset}
-                    className={classes.imageStyling}
-                    alt="Photo of a person taking a photo of the sunset.">
-                    
-                </CardMedia>
-                <Box className={classes.nameContainer} >
-                    <Typography variant="h3" className={classes.textOverlay} >
-                        PHOTOGRAPHY
-                    </Typography>
-                </Box>
+            {/* Title Card */}
+            {header.map((lsItem, key) => (
+            <PhotoTitle key={key} lsItem={lsItem} />
+            ))}
 
-            </Card>
+            {/* Text paragraph */}
+            <IntroParagraph introString={introString} />
+
+            {/* Photo Grid */}
+            <PhotoGrid/>
+
+            {/* Quote Card */}
+            {quote.map((lsItem, key) => (
+                <QuoteCard key={key} lsItem={lsItem} />
+            ))}
+
             <div className={classes.textContainer} >
-                <div className={classes.introText} >
-                    <Typography style={{marginTop: "2rem", marginBottom: "1rem"}}>
-                        Below I have selected a few photos I took (and retouched). You can find more of my photo-work on my Instagram (linked in the menu).
-                    </Typography>
-                </div>
-                <PhotoGrid/>
-
-                {/* Quote */}
-                <Container className={classes.quoteContainer}>
-                    <ImQuotesLeft style={{textAlign: "right", fontSize: "20px"}} />
-                    {quote.map((lsItem, key) => (
-                        <Box key={key} >
-                            <Typography className={classes.quoteText}>
-                                {lsItem.itemText}
-                            </Typography>
-                            <ImQuotesRight className={classes.rightQuote}/>
-                            <Typography className={classes.authorText}>
-                                -- {lsItem.itemAuthor} --
-                            </Typography>
-                        
-                        </Box>
-                    ))}
-                </Container>
 
                 {/* Link back to Top of page */}
                 <HashLink className={classes.backTopContainer}  to="/overall#top" >
