@@ -3,7 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import { 
     makeStyles,
     Typography,
-    Box
+    Grid
 } from "@material-ui/core";
 import SocialMediaIcons from "../components/SocialMediaIcons";
 
@@ -22,73 +22,52 @@ import { After_the_Storms_short } from "../utils/constants";
         transform: "translate(-50%,-50%)",
         zindex: "-1"
     },
-    nameContainer: {
-        position: "absolute",
-        display: "flex",
-        alignItems: 'center',
-        justifyContent: "center",
-        height: "84%",
-        width: "100%"
-    },
-    nameOverlay: {
-        fontFamily: "Perpetua",
-        fontWeight: "bold",
-        fontSize: "90px",
-        textAlign: "center",
-        letterSpacing: 16,
-        color: "white",
-        [theme.breakpoints.down("xs")]: {
-            fontSize: "60px",
-            marginLeft: "2rem",
-            marginRight: "2rem"
-        }
-    },
-    cornerTextOverlay: {
-        fontFamily: "Perpetua",
-        fontWeight: "bold",
-        fontSize: "20px",
-        letterSpacing: 6,
-        [theme.breakpoints.down("xs")]: {
-            fontSize: "18px"
-        }
-    },
-    cornerTL:{
-        position: "absolute",
-        left: "4rem",
-        top: "1.1rem",
-        color: "white",
-        textDecoration: "none",
-        [theme.breakpoints.up("lg")]: {
-            left: "10rem"
+    centerContainers: {
+        "& .textContainer": {
+            display: "flex",
+            alignItems: 'center',
+            justifyContent: "center",
+            "& .textFormatting": {
+                fontFamily: "Perpetua",
+                fontWeight: "bold",
+                fontSize: "70px",
+                color: "white",
+                letterSpacing: 10,
+                zIndex: "1",
+                [theme.breakpoints.down("md")]: {
+                    fontSize: "50px"
+                },
+                [theme.breakpoints.down("sm")]: {
+                    fontSize: "40px"
+                },
+                [theme.breakpoints.down("xs")]: {
+                    fontSize: "25px"
+                }
+            }
         },
-        [theme.breakpoints.down("xs")]: {
-            left: "2rem"
-        }
     },
-    cornerBR: {
-        position: "absolute",
-        right: "4rem",
-        bottom: "5rem",
-        color: "white",
-        textDecoration: "none",
-        [theme.breakpoints.up("lg")]: {
-            right: "10rem"
+    topBottomContainers: {
+        alignItems: "center",
+        "& .textContainer": {
+            zIndex: "1",
         },
-        [theme.breakpoints.down("xs")]: {
-            right: "2rem"
-        }
-    },
-    cornerBL: {
-        position: "absolute",
-        left: "4rem",
-        bottom: "5rem",
-        color: "white",
-        textDecoration: "none",
-        [theme.breakpoints.up("lg")]: {
-            left: "10rem"
-        },
-        [theme.breakpoints.down("xs")]: {
-            left: "2rem"
+        "& .textFormatting": {
+            fontFamily: "Perpetua",
+            fontWeight: "bold",
+            fontSize: "30px",
+            letterSpacing: 6,
+            color: "white",
+            textDecoration: "none",
+            [theme.breakpoints.down("md")]: {
+                fontSize: "25px",
+            },
+            [theme.breakpoints.down("sm")]: {
+                fontSize: "18px",
+            },
+            [theme.breakpoints.down("xs")]: {
+                fontSize: "12px",
+                letterSpacing: 4
+            }
         }
     }
  }))
@@ -99,30 +78,48 @@ const Home = () => {
     const classes = useStyles()
 
     return (
+            
         <>
             
-            <>
-                
-                <div > 
-                    <video autoPlay loop muted className={classes.video_background} >
-                        <source src={After_the_Storms_short} type="video/mp4" />
-                    </video>
-                </div>
-                <SocialMediaIcons />
-                <Box className={classes.nameContainer} >
-                    <Typography variant="h3" className={classes.nameOverlay} >
-                        CAMILLE SANCHEZ
-                    </Typography>
-                </Box>
-                <div className={classes.cornerTextOverlay} >
-                    <HashLink className={classes.cornerTL} to="/overall#about" >About Me</HashLink>
-                    <HashLink  className={classes.cornerBL} to="/overall#photography" >Photography</HashLink>
-                    <HashLink  className={classes.cornerBR} to="/overall#top" >Filmography</HashLink>
-                </div>
-
-            </>
+            <div > 
+                <video autoPlay loop muted className={classes.video_background} >
+                    <source src={After_the_Storms_short} type="video/mp4" />
+                </video>
+            </div>
+            <div style={{height: "100vh"}}>
+                <Grid container className={classes.topBottomContainers} style={{height: "10%"}}>
+                    <Grid item xs />
+                    <Grid item xs={5} align="left" className="textContainer" >
+                        <HashLink className="textFormatting" style={{zIndex: "1" }} to="/overall#about" >About Me</HashLink>
+                    </Grid>
+                    <Grid item xs />
+                    <Grid item xs={5} style={{zIndex: "1" }}>
+                        <SocialMediaIcons />
+                    </Grid>
+                    <Grid item xs/>
+                </Grid>
+                <Grid container align="center" className={classes.centerContainers} style={{height: "80%"}}>
+                        <Grid item xs/>
+                        <Grid item xs={10} className="textContainer">
+                                <Typography variant="h3" className="textFormatting" >
+                                    CAMILLE SANCHEZ
+                                </Typography>
+                        </Grid>
+                        <Grid item xs />
+                </Grid>
+                <Grid container className={classes.topBottomContainers} style={{height: "10%"}} >
+                    <Grid item xs />
+                    <Grid item xs={5} align="left" className="textContainer" >
+                        <HashLink className="textFormatting" to="/overall#photography" >Photography</HashLink>
+                    </Grid>
+                    <Grid item xs />
+                    <Grid item xs={5} align="right" className="textContainer" >
+                        <HashLink className="textFormatting" to="/overall#top" >Filmography</HashLink>
+                    </Grid>
+                    <Grid item xs />
+                </Grid>
+            </div>
         </>
-
     )
 };
 

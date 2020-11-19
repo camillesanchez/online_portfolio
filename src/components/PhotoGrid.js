@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { 
-    Container,
     Grid,
     IconButton,
     makeStyles,
@@ -18,38 +17,44 @@ import {
 } from "../utils/constants";
 
 const useStyles = makeStyles((theme) => ({
-    textContainer: {
-        padding: "2rem 8rem 1.5rem",
-        [theme.breakpoints.down("sm")]: {
-            padding: "1.5rem 4rem 1rem"
-        }
-    },
-    button: {
-        position: "relative"
-    },
-    textMoreButton: {
-        position: "relative",
-        fontSize: "17px",
-        fontWeight: "bold",
-        paddingTop: "0.8rem",
-        [theme.breakpoints.down("xs")]: {
-            fontSize: "11.5px",
+    gridContainer: {
+        height: "20%", 
+        width: "100vw", 
+        zIndex: "1",
+        // display: "inline-block",
+        padding: "1% 0%",
+        // background: "grey",
+        "& .button": {
+            position: "relative",
+            paddingTop: "0.5rem",
+            [theme.breakpoints.down("xs")]:{
+                paddingTop: "0rem"
+            }
+        },
+        "& .moreButton": {
+            position: "relative",
+            fontSize: "25px",
+            color: "black",
+            [theme.breakpoints.down("xs")]: {
+                fontSize: "20px"
+            },
+            [theme.breakpoints.up("lg")]: {
+                fontSize: "30px"
+            }
+        },
+        "& .textMoreButton": {
+            position: "relative",
+            fontSize: "17px",
+            fontWeight: "bold",
             paddingTop: "0.8rem",
-        },
-        [theme.breakpoints.up("lg")]: {
-            fontSize: "20px",
-            paddingTop: "0.8rem"
-        }
-    },
-    moreButton: {
-        position: "relative",
-        fontSize: "25px",
-        color: "black",
-        [theme.breakpoints.down("xs")]: {
-            fontSize: "20px"
-        },
-        [theme.breakpoints.up("lg")]: {
-            fontSize: "30px"
+            [theme.breakpoints.down("xs")]: {
+                fontSize: "11.5px",
+                paddingTop: "0.8rem",
+            },
+            [theme.breakpoints.up("lg")]: {
+                fontSize: "20px",
+                paddingTop: "0.8rem"
+            }
         }
     }
   }));
@@ -98,35 +103,41 @@ const PhotoGrid = () => {
     const classes = useStyles()
 
     return (
-        <>
-            <Container className={classes.textContainer}>
-                <Grid container >
-                    <Grid item xs={12}>
-                        <Grid container justify="center" spacing={2}>
-                            {photoItemsShown(gridNumber).map((lsItems, key) => (
-                                <Grid key={key} item>
-                                    <PhotoCard lsItems={lsItems} />  
+        <>  
+            <div className={classes.gridContainer} >
+                <Grid container>
+                    <Grid item xs={2} />
+                    <Grid item xs={8}>
+                        <Grid container >
+                            <Grid item xs={12}>
+                                <Grid container justify="center" spacing={2}>
+                                    {photoItemsShown(gridNumber).map((lsItems, key) => (
+                                        <Grid key={key} item>
+                                            <PhotoCard lsItems={lsItems} />  
+                                        </Grid>
+                                    ))}
                                 </Grid>
-                            ))}
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </Grid>
-            </Container>
 
-            { gridNumber < photoItems.length &&
-                    <div className={classes.button}>
-                        <Grid container justify="center" >
-                            <Tooltip title="Once Clicked, Scroll Up for Added Videos">
-                                <IconButton>
-                                    <BsChevronDoubleDown className={classes.moreButton} onClick={() => setGridNumber(gridNumber+2)} />
-                                </IconButton>
-                            </Tooltip>
-                            <Typography className={classes.textMoreButton}>
-                                More Photos...
-                            </Typography>
-                        </Grid>
-                    </div>
-                }
+                        { gridNumber < photoItems.length &&
+                            <div className="button">
+                                <Grid container justify="center" >
+                                    <Tooltip title="Once Clicked, Scroll Up for Added Videos">
+                                        <IconButton>
+                                            <BsChevronDoubleDown className="moreButton" onClick={() => setGridNumber(gridNumber+2)} />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Typography className="textMoreButton">
+                                        More Photos...
+                                    </Typography>
+                                </Grid>
+                            </div>
+                        }
+                    </Grid>
+                    <Grid item xs={2} />
+                </Grid>
+            </div>
         </>
     )
 };

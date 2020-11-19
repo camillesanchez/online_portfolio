@@ -18,29 +18,30 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
         maxWidth: "90%",
         [theme.breakpoints.down("sm")]: {
             maxWidth: "100%"
+        },
+        "& .timelineItemTitle": {
+            color: "#6495ED", 
+            fontWeight: "bold", 
+            fontSize: "18px",
+            [theme.breakpoints.down("sm")]: {
+                fontSize: "15px",
+            }
+        },
+        "& .timelineItemDesc": {
+            fontSize: "14px",
+            paddingTop: "1rem",
+            [theme.breakpoints.down("sm")]: {
+                fontSize: "13px"
+            }
+        },
+        "& .timelineItemExpand": {
+            fontSize: "13px",
+            paddingTop: "0.7rem",
         }
-    },
-    timelineItemTitle: {
-        color: "#6495ED", 
-        fontWeight: "bold", 
-        fontSize: "18px",
-        [theme.breakpoints.down("sm")]: {
-            fontSize: "15px",
-        }
-    },
-    timelineItemDesc: {
-        fontSize: "14px",
-        paddingTop: "1rem",
-        [theme.breakpoints.down("sm")]: {
-            fontSize: "13px"
-        }
-    },
-    timelineItemExpand: {
-        fontSize: "13px",
-        paddingTop: "0.7rem",
     }
 }))
 
+// Timeline Card portion
 const TimelineCard = (props) => {
 
     const [showMore,setShowMore] = useState(false)
@@ -51,14 +52,14 @@ const TimelineCard = (props) => {
         <>
             <Paper elevation={3} className={classes.paper}>
                 <>
-                    <Typography variant="h6" className={classes.timelineItemTitle} >
+                    <Typography variant="h6" className="timelineItemTitle" >
                         {props.lsItem.timelineName}
                     </Typography>
-                    <Typography variant="h7" className={classes.timelineItemDesc} >
+                    <Typography variant="h7" className="timelineItemDesc" >
                         {props.lsItem.timelineDescription}
                     </Typography>
                     { showMore &&
-                        <Typography className={classes.timelineItemExpand}>
+                        <Typography className="timelineItemExpand">
                             {parse(props.lsItem.timelineExpand)}
                         </Typography>
                     }
