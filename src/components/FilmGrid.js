@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { 
     Grid,
     makeStyles,
-    Container,
     IconButton,
     Typography,
     Tooltip
@@ -23,69 +22,44 @@ import {
 
 // CSS Styles
 const useStyles = makeStyles((theme) => ({
-    textContainer: {
-        padding: "0rem 8rem",
-        [theme.breakpoints.down("sm")]: {
-            padding: "0rem 4rem"
-        }
-    },
-    paper: {
-        height: "394px",
-        width: "700px",
-        background: "black",
-        [theme.breakpoints.up("lg")]: {
-            height: "506px",
-            width: "900px"
+    gridContainer: {
+        height: "20%", 
+        width: "100vw", 
+        zIndex: "1",
+        // display: "inline-block",
+        padding: "1% 0%",
+        // background: "grey",
+        "& .button": {
+            position: "relative",
+            paddingTop: "0.5rem",
+            [theme.breakpoints.down("xs")]:{
+                paddingTop: "0rem"
+            }
         },
-        [theme.breakpoints.down("sm")]: {
-            height: "309px",
-            width: "550px"
+        "& .moreButton": {
+            position: "relative",
+            fontSize: "25px",
+            color: "black",
+            [theme.breakpoints.down("xs")]: {
+                fontSize: "20px"
+            },
+            [theme.breakpoints.up("lg")]: {
+                fontSize: "30px"
+            }
         },
-        [theme.breakpoints.down("xs")]: {
-            height: "197px",
-            width: "350px"
-        }
-    },
-    imageCover: {
-        maxWidth: "900px",
-        maxHeight: "506px",
-        alignItems: "center",
-        justifyContent: "center",
-        opacity: "1",
-        "&:hover": {
-            opacity: "0.5"
-        }
-    },
-    button: {
-        position: "relative",
-        paddingTop: "0.5rem",
-        [theme.breakpoints.down("xs")]:{
-            paddingTop: "0rem"
-        }
-    },
-    textMoreButton: {
-        position: "relative",
-        fontSize: "17px",
-        fontWeight: "bold",
-        paddingTop: "0.8rem",
-        [theme.breakpoints.down("xs")]: {
-            fontSize: "11.5px",
+        "& .textMoreButton": {
+            position: "relative",
+            fontSize: "17px",
+            fontWeight: "bold",
             paddingTop: "0.8rem",
-        },
-        [theme.breakpoints.up("lg")]: {
-            fontSize: "20px",
-            paddingTop: "0.8rem"
-        }
-    },
-    moreButton: {
-        position: "relative",
-        fontSize: "25px",
-        color: "black",
-        [theme.breakpoints.down("xs")]: {
-            fontSize: "20px"
-        },
-        [theme.breakpoints.up("lg")]: {
-            fontSize: "30px"
+            [theme.breakpoints.down("xs")]: {
+                fontSize: "11.5px",
+                paddingTop: "0.8rem",
+            },
+            [theme.breakpoints.up("lg")]: {
+                fontSize: "20px",
+                paddingTop: "0.8rem"
+            }
         }
     }
   }));
@@ -226,7 +200,7 @@ const filmItemsShown = (counter) => {
     return filmData
 }
 
-// Function
+// Film Grid portion
 const FilmGrid = () => {
 
     const [gridNumber, setGridNumber] = useState(3)
@@ -235,36 +209,41 @@ const FilmGrid = () => {
 
     return (
         <>
-            <Container className={classes.textContainer}>
-                <Grid container >
-                    <Grid item xs={12}>
-                        <Grid container justify="center" spacing={2}>
-                            {filmItemsShown(gridNumber).map((lsItems, key) => (
-                                <Grid key={key} item>
-                                    <FilmCard lsItems={lsItems} />  
+            <div className={classes.gridContainer} >
+                <Grid container>
+                    <Grid item xs={2} />
+                    <Grid item xs={8}>
+                        <Grid container >
+                            <Grid item xs={12}>
+                                <Grid container justify="center" spacing={2}>
+                                    {filmItemsShown(gridNumber).map((lsItems, key) => (
+                                        <Grid key={key} item>
+                                            <FilmCard lsItems={lsItems} />  
+                                        </Grid>
+                                    ))}
                                 </Grid>
-                            ))}
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </Grid>
-                
-                { gridNumber < filmItems.length &&
-                    <div className={classes.button}>
-                        <Grid container justify="center" >
-                            <Tooltip title="Once Clicked, Scroll Up for Added Videos">
-                                <IconButton>
-                                    <BsChevronDoubleDown className={classes.moreButton} onClick={() => setGridNumber(gridNumber+3)} />
-                                </IconButton>
-                            </Tooltip>
-                            <Typography className={classes.textMoreButton}>
-                                More Videos...
-                            </Typography>
+                        
+                        { gridNumber < filmItems.length &&
+                            <div className="button">
+                                <Grid container justify="center" >
+                                    <Tooltip title="Once Clicked, Scroll Up for Added Videos">
+                                        <IconButton>
+                                            <BsChevronDoubleDown className="moreButton" onClick={() => setGridNumber(gridNumber+3)} />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Typography className="textMoreButton">
+                                        More Videos...
+                                    </Typography>
 
-                        </Grid>
-                    </div>
-                }
-                
-            </Container>
+                                </Grid>
+                            </div>
+                        }          
+                    </Grid>
+                    <Grid item xs={2} />
+                </Grid>
+            </div>
         </>
     )
 };

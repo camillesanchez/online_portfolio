@@ -1,43 +1,23 @@
 import React from "react";
-import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
-import { 
-    makeStyles,
-    Typography,
-    Box,
-    Container
-} from "@material-ui/core";
 import TitleCard from "../components/TitleCard";
 import About from './about';
 import Filmography from "../pages/filmography";
 import Photography from "./photography";
 import Footer from '../components/Footer';
-
- // CSS Styles
- const useStyles = makeStyles(theme=>({
- }))
-
- // Content
-const quote = [
-    {
-        itemAuthor: "Annie Leibovitz",
-        itemText: "One doesn’t stop seeing. One doesn’t stop framing. It doesn’t turn off and turn on. It’s on all the time."
-    }
-]
+import FloatingNavButton from "../components/FloatingNavButton";
 
 const Overall = () => {
 
-    const classes = useStyles()
-
     return (
         <>
-        
+            <FloatingNavButton/>
             <section id= "#top">
                 <TitleCard />
             </section>
             
             {/* All pages */}
             <section id="filmography">
-                <Filmography  />
+                <Filmography />
             </section>      
             
             <section id="photography">

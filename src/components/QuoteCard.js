@@ -10,52 +10,54 @@ import {
  // CSS Styles
  const useStyles = makeStyles(theme=>({
     quoteContainer: {
-        height: "20vh", 
+        height: "30%", 
         width: "100vw", 
         zIndex: "1",
-        "& .topBottomContainers": {
-            height: "15%",
-            background: "green"
-        },
-        "& .centerContainer": {
-            "& .textBox" : {
-                position: "flex",
-                [theme.breakpoints.up("md")]: {
-                    padding: "0 10%"
-                },
+        padding: "2% 0",
+        // background: "yellow",
+        "& .textBox" : {
+            position: "flex",
+            [theme.breakpoints.up("md")]: {
+                padding: "0 10%"
+            },
 
-                "& .quoteText": {
-                    fontSize: "16.5px",
-                    textAlign: "center",
-                    margin: "0 1rem",
-                    [theme.breakpoints.down("sm")]: {
-                        fontSize: "11px",
-                    },
+            "& .quoteText": {
+                fontSize: "16.5px",
+                textAlign: "center",
+                margin: "0 1rem",
+                [theme.breakpoints.down("md")]: {
+                    fontSize: "14px",
                 },
-                "& .authorText": {
+                [theme.breakpoints.down("xs")]: {
+                    fontSize: "11px",
+                },
+            },
+            "& .authorText": {
+                fontSize: "15px",
+                textAlign: "right",
+                fontWeight: "bold",
+                marginRight: "10%",
+                [theme.breakpoints.down("md")]: {
+                    fontSize: "12px",
+                },
+                [theme.breakpoints.down("sm")]: {
+                    fontSize: "11px",
+                }
+            },
+            "& .leftIcon": {
+                textAlign: "left", 
+                fontSize: "20px",
+                padding: "0",
+                [theme.breakpoints.down("sm")]: {
                     fontSize: "15px",
-                    textAlign: "right",
-                    fontWeight: "bold",
-                    marginRight: "10%",
-                    [theme.breakpoints.down("sm")]: {
-                        fontSize: "10px",
-                    }
-                },
-                "& .leftIcon": {
-                    textAlign: "left", 
-                    fontSize: "20px",
-                    padding: "0",
-                    [theme.breakpoints.down("sm")]: {
-                        fontSize: "15px",
-                    }
-                },
-                "& .rightIcon": {
-                    textAlign: "right",
-                    fontSize: "20px",
-                    padding: "0",
-                    [theme.breakpoints.down("sm")]: {
-                        fontSize: "15px",
-                    }
+                }
+            },
+            "& .rightIcon": {
+                textAlign: "right",
+                fontSize: "20px",
+                padding: "0",
+                [theme.breakpoints.down("sm")]: {
+                    fontSize: "15px",
                 }
             }
         }
@@ -71,10 +73,7 @@ const QuoteCard = (props) => {
     return (
         <>
             <div className={classes.quoteContainer} >
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
-                </Grid>
-                <Grid container className="centerContainer">
+                <Grid container >
                         <Grid item xs={2} />
                         <Grid item xs={8} className="textBox">
                             <Container className="leftIcon" >
@@ -89,12 +88,8 @@ const QuoteCard = (props) => {
                             <Typography className="authorText">
                                 -- {props.lsItem.itemAuthor} --
                             </Typography>
-
                         </Grid>
                         <Grid item xs={2} />
-                </Grid>
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
                 </Grid>
             </div>
         </>

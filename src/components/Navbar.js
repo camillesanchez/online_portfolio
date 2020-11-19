@@ -14,12 +14,14 @@ import {
     Tooltip
 } from "@material-ui/core";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { HiMenu } from "react-icons/hi";
 import { FaLinkedin, FaInstagram } from "react-icons/fa"; 
 import { MdEmail, MdPhotoCamera } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { IoIosPerson } from "react-icons/io";
 import { GiFilmProjector } from "react-icons/gi";
+
+// Don't delete these imports --> used for the menu bar once clicked on icon
+import { HiMenu } from "react-icons/hi";
 import MobilLeftMenuSlider from "@material-ui/core/Drawer";
 
 
@@ -62,81 +64,120 @@ const useStyles = makeStyles(theme=>({
     },
     menuSliderContainer: {
         width: "300px",
-        minHeight: "100%",
+        minHeight: "100vh",
         background: "black",
         position: "flex",
-        [theme.breakpoints.down("sm")]: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        [theme.breakpoints.down("xs")]: {
             width: "200px",
+        },
+        [theme.breakpoints.up("md")]: {
+            width: "400px",
         },
         "& .menuContainer": {
             margin: "10%",
-            // top:"3rem",
-            // left: "1rem",
-            // right: "1rem",
-            // height: "100vh",
+            height: "100%",
             paddingBottom: "30%",
-            background: "yellow",
             "& .menuTitle": {
-                color: "red",
+                color: "white",
                 textAlign: "center",
-                padding: "10% 0",
+                padding: "10% 0 15%",
                 "& .top": {
-                    fontSize: "20px",
+                    fontSize: "24px",
                     fontWeight: "bold",
+                    [theme.breakpoints.up("md")]: {
+                        fontSize: "34px"
+                    },
                     [theme.breakpoints.down("sm")]: {
-                        fontSize: "18px"
+                        fontSize: "24px"
+                    },
+                    [theme.breakpoints.down("xs")]: {
+                        fontSize: "17px"
                     }
                 },
                 "& .bottom": {
-                    fontSize: "18px",
+                    fontSize: "22px",
+                    [theme.breakpoints.up("md")]: {
+                        fontSize: "32px"
+                    },
                     [theme.breakpoints.down("sm")]: {
-                        fontSize: "15px"
+                        fontSize: "22px"
+                    },
+                    [theme.breakpoints.down("xs")]: {
+                        fontSize: "14px"
                     }
                 }
             },
-            "& .menuLinks": {
-                textDecoration: "none",
-                "& .menuText" : {
+            "& .insideMenu": {
+                background: "orange",
+                "& .menuLinks": {
+                    textDecoration: "none",
+                    marginLeft: "2%",
+                    "& .menuText" : {
+                        color: "white",
+                        fontSize: "18px",
+                        display: "inline-block",
+                        marginBottom: "2%",
+                        [theme.breakpoints.up("lg")]: {
+                            // background: "pink",
+                            fontSize: "40px",
+                            color: "yellow",
+                        },
+                        [theme.breakpoints.down("sm")]: {
+                            // background: "pink",
+                            fontSize: "60px",
+                            color: "red",
+                        },
+                        [theme.breakpoints.down("xs")]: {
+                            // background: "pink",
+                            fontSize: "30px",
+                            color: "purple",
+                        } 
+                    }
+                },
+                "& .menuIcon" : {
                     color: "white",
-                    fontSize: "18px",
-                    // marginLeft: "-40px",
+                    fontSize: "22px",
+                    marginRight: "3%",
+                    display: "inline",
                     [theme.breakpoints.down("sm")]: {
-                        color: "green",
-                        background: "pink",
-                        fontSize: "40px",
+                        // background: "orange",
+                        fontSize: "15px",
                     } 
                 }
-            },
-            "& .menuIcon" : {
+            }
+        },
+        "& .emailBlock": {
+            // background: "orange",
+            paddingBottom: "10%",
+            "& .line": {
                 color: "white",
-                fontSize: "22px",
-                padding: "0",
-                display: "inline",
-                [theme.breakpoints.down("sm")]: {
-                    background: "orange",
-                    fontSize: "19px",
-                } 
+                backgroundColor: "white", 
+                height: "5", 
+                width: "30%", 
+                justifyContent: "center",
             },
-            "& .emailBlock": {
-                background: "orange",
-                // height: "100%",
-                paddingBottom: "10%",
-                "& .line": {
-                    color: "white",
-                    backgroundColor: "white", 
-                    height: "5", 
-                    width: "30%", 
-                    justifyContent: "center",
+            "& .email": {
+                color: "white",
+                fontSize: "16px",
+                textAlign: "center",
+                paddingBottom: "2%",
+                [theme.breakpoints.up("md")]: {
+                    paddingTop: "5%",
+                    fontSize: "20px"
                 },
-                "& .email": {
-                    color: "white",
-                    fontSize: "12px",
-                    textAlign: "center",
-                    paddingTop: "0.5rem"
+                [theme.breakpoints.down("sm")]: {
+                    paddingTop: "4%",
+                    fontSize: "16px"
+                },
+                [theme.breakpoints.down("xs")]: {
+                    paddingTop: "3%",
+                    fontSize: "11px"
                 }
             }
-
-        },
+        }
     }
 }))
 
@@ -190,36 +231,28 @@ const Navbar = () => {
                     </div>
                     <List>
                         {menuItems.map((lsItems, key) => (
-
-                                <ListItem>
-
-                                        <div>
-                                        {/* className= "menuIcon" */}
-                                            <ListItemIcon className= "menuIcon" >
-                                                {lsItems.pageIcon}
-                                            </ListItemIcon>
-                                            {/* className= "menuText" */}
-                                            <HashLink key={key} to={lsItems.pageLink} className="menuLinks" >  
-
-                                                <ListItemText className= "menuText">
-                                                    {lsItems.pageName}
-                                                </ListItemText>
-                                            </HashLink>
-                                        </div>
-                                    
-                                </ListItem>
-                            
-
+                            <ListItem className="insideMenu">
+                                <div >
+                                    <ListItemIcon className= "menuIcon" >
+                                        {lsItems.pageIcon}
+                                    </ListItemIcon>
+                                    <HashLink key={key} to={lsItems.pageLink} className="menuLinks" >  
+                                        <ListItemText className= "menuText">
+                                            {lsItems.pageName}
+                                        </ListItemText>
+                                    </HashLink>
+                                </div>
+                            </ListItem>
                         ))}
                     </List>
-                    <div className= "emailBlock"> 
+                </div>
+                <div className= "emailBlock"> 
                     
-                        <hr className="line" />
+                    <hr className="line" />
 
-                        <Typography className="email">
-                                camille.sanchez94@gmail.com
-                        </Typography>
-                    </div>
+                    <Typography className="email">
+                        camille.sanchez94@gmail.com
+                    </Typography>
                 </div>
             </Box>
         </>
@@ -231,20 +264,28 @@ const Navbar = () => {
             <Box component= "nav">
                 <AppBar position= "static" className={classes.navbarBox} >
                     <Toolbar>
-                        <IconButton onClick={toggleSlider("left", true)}>
-                            <HiMenu className="menuHamburgerIcon" />
-                        </IconButton>
+                        <>
+                            {/* ---- !!!!! DON'T DELETE IT'S THE NAV BAR BUTTON OPENING MENU !!!! ---- */}
+                                {/* <IconButton onClick={toggleSlider("left", true)}>
+                                    <HiMenu className="menuHamburgerIcon" />
+                                </IconButton> */}
+                        </>
 
                         <Typography variant= "h5" className="navbarText">
                             Camille Sanchez
                         </Typography>
-                        <MobilLeftMenuSlider 
-                            anchor="left"
-                            open={state.left}
-                            onClose={toggleSlider("left"), false}
-                            >
-                            {sideList("left")}
-                        </MobilLeftMenuSlider>
+
+                        <>
+                            {/* ---- !!!!! DON'T DELETE IT'S THE MENU TIED TO NAV BAR BUTTON !!!! ---- */}
+                                {/* <MobilLeftMenuSlider 
+                                    anchor="left"
+                                    open={state.left}
+                                    onClose={toggleSlider("left"), false}
+                                    >
+                                    {sideList("left")}
+                                </MobilLeftMenuSlider> */}
+                        </>
+
                         <Box component="div" className="socialIconsBox">
                             <IconButton className="socialIcon" onClick={() => window.open("https://www.linkedin.com/in/camille-sanchez-media/")}>
                                 <FaLinkedin />

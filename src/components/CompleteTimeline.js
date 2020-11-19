@@ -21,31 +21,28 @@ import WorkIcon from '@material-ui/icons/Work';
  // CSS Styles
  const useStyles = makeStyles(theme=>({
     container: {
-        height: "20vh", 
+        height: "20%", 
         width: "100vw", 
         zIndex: "1",
-        "& .topBottomContainers": {
-            height: "15%",
-            background: "green"
-        },
-        "& .centerContainer": {
-            "& .timelineContainer": {
-                padding: "1rem",
-                [theme.breakpoints.up("md")]: {
-                    marginLeft: "5rem",
-                    marginRight: "5rem",
-                },
-                "& .timelineItemDot": {
-                    background: "#6495ED"
-                },
-                "& .timelineItemDates": {
-                    color: "#A9A9A9", 
-                    paddingTop: "0.5rem", 
-                    fontSize: "15px",
-                    [theme.breakpoints.down("sm")]: {
-                        fontSize: "13px",
-                        paddingTop: "0.7rem"
-                    }
+        // display: "inline-block",
+        padding: "0%",
+        // background: "grey",
+        "& .timelineContainer": {
+            padding: "1rem",
+            [theme.breakpoints.up("md")]: {
+                marginLeft: "5rem",
+                marginRight: "5rem",
+            },
+            "& .timelineItemDot": {
+                background: "#6495ED"
+            },
+            "& .timelineItemDates": {
+                color: "#A9A9A9", 
+                paddingTop: "0.5rem", 
+                fontSize: "15px",
+                [theme.breakpoints.down("sm")]: {
+                    fontSize: "13px",
+                    paddingTop: "0.7rem"
                 }
             }
         }
@@ -94,13 +91,9 @@ const CompleteTimeline = () => {
         <>     
 
             <div className={classes.container} >
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
-                </Grid>
-                <Grid container className="centerContainer">
+                <Grid container>
                     <Grid item xs={2} />
                     <Grid item xs={8}>
-                        
                         <Box className="timelineContainer">
                             <Timeline align="alternate">
                                 {timelineItems.map((lsItem, key) => (
@@ -123,37 +116,10 @@ const CompleteTimeline = () => {
                                 ))}
                             </Timeline>
                         </Box>
-
                     </Grid>
                     <Grid item xs={2} />
                 </Grid>
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
-                </Grid>
             </div>
-            {/* <Box className={classes.timelineContainer}>
-                <Timeline align="alternate">
-                    {timelineItems.map((lsItem, key) => (
-                        
-                        <TimelineItem key={key}>
-                            <TimelineOppositeContent>
-                                <Typography className="timelineItemDates">
-                                    {lsItem.timelineDate}
-                                </Typography>
-                            </TimelineOppositeContent>
-                            <TimelineSeparator >
-                                <TimelineDot className="timelineItemDot">
-                                    {lsItem.timelineIcon}
-                                </TimelineDot>
-                                <TimelineConnector/>
-                            </TimelineSeparator>
-                            <TimelineContent>
-                                <TimelineCard lsItem={lsItem} />
-                            </TimelineContent>
-                        </TimelineItem>
-                    ))}
-                </Timeline>
-            </Box> */}
         </>
     )
 };

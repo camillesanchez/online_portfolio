@@ -1,11 +1,9 @@
 import React from "react";
 import SubTitles from "../components/SubTitles";
 import { 
-    Box,
     CardMedia, 
     Grid,
-    makeStyles,
-    Typography
+    makeStyles
 } from "@material-ui/core";
 
 // Media imports
@@ -19,30 +17,27 @@ import {
  // CSS Styles
  const useStyles = makeStyles(theme=>({
     skillsContainer: {
-        height: "20vh", 
+        height: "20%", 
         width: "100vw", 
         zIndex: "1",
-        "& .topBottomContainers": {
-            height: "15%",
-            background: "orange"
-        },
-        "& .centerContainer": {
-            "& .textBox" : {
-                position: "flex",
-                [theme.breakpoints.up("md")]: {
-                    padding: "0 5%"
+        display: "inline-block",
+        padding: "2% 0 0%",
+        // background: "purple",
+        "& .textBox" : {
+            position: "flex",
+            [theme.breakpoints.up("md")]: {
+                padding: "0 5%"
+            },
+            "& .imageCover": {
+                alignItems: "center",
+                justifyContent: "center",
+                maxWidth: "460px",
+                padding: "0rem 2rem",
+                [theme.breakpoints.down("md")]: {
+                    maxWidth: "350px"
                 },
-                "& .imageCover": {
-                    alignItems: "center",
-                    justifyContent: "center",
-                    maxWidth: "460px",
-                    padding: "0rem 2rem",
-                    [theme.breakpoints.down("md")]: {
-                        maxWidth: "350px"
-                    },
-                    [theme.breakpoints.down("sm")]: {
-                        maxWidth: "270px"
-                    }
+                [theme.breakpoints.down("sm")]: {
+                    maxWidth: "270px"
                 }
             }
         }
@@ -84,13 +79,9 @@ const AboutGoodAt = () => {
 
             {/* Skills images */}
             <div className={classes.skillsContainer} >
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
-                </Grid>
-                <Grid container className="centerContainer">
+                <Grid container >
                         <Grid item xs />
                         <Grid item xs={10} className="textBox">
-    
                             <Grid container >
                                 <Grid item xs={12}>
                                     <Grid container justify="center" spacing={1}>
@@ -108,12 +99,8 @@ const AboutGoodAt = () => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-
                         </Grid>
                         <Grid item xs />
-                </Grid>
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
                 </Grid>
             </div>
 

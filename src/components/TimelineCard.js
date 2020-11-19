@@ -41,6 +41,7 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
     }
 }))
 
+// Timeline Card portion
 const TimelineCard = (props) => {
 
     const [showMore,setShowMore] = useState(false)

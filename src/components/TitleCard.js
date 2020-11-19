@@ -13,7 +13,7 @@ import { After_the_Storms_short } from "../utils/constants";
  // CSS Styles
  const useStyles = makeStyles(theme=>({
     overall: {
-        paddingBottom: "2%"
+        display: "inline-block"
     },
     videoBackground: {
         position: "absolute",

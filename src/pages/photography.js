@@ -1,40 +1,11 @@
 import React from "react";
-import { HashLink } from "react-router-hash-link";
 import PhotoGrid from '../components/PhotoGrid';
 import PhotoTitle from "../components/PhotoTitle";
 import IntroParagraph from "../components/IntroParagraph";
 import QuoteCard from "../components/QuoteCard";
-import { 
-    makeStyles,
-    Typography
-} from "@material-ui/core";
 
 // Media Import
 import { photography_sunset } from "../utils/constants";
-
- // CSS Styles
- const useStyles = makeStyles(theme=>({
-    textContainer: {
-        padding: "2rem 8rem 3rem",
-        [theme.breakpoints.down("sm")]: {
-            padding: "1.5rem 4rem 2rem"
-        }
-    },
-    backTopContainer: {
-        textAlign: "right",
-        background: "red",
-        textDecoration: "none"
-    },
-    backTopText: {
-        fontSize: "12px",
-        color: "grey",
-        paddingTop: "0.5rem",        
-        [theme.breakpoints.down("sm")]: {
-            paddingTop: "0rem",
-            fontSize: "10px"
-        }
-    }
-}))
 
 // Content
 const header = [
@@ -55,8 +26,6 @@ const quote = [
 ]
 const Photography = () => {
 
-    const classes = useStyles()
-
     return (
         <>
             {/* Title Card */}
@@ -74,18 +43,6 @@ const Photography = () => {
             {quote.map((lsItem, key) => (
                 <QuoteCard key={key} lsItem={lsItem} />
             ))}
-
-            <div className={classes.textContainer} >
-
-                {/* Link back to Top of page */}
-                <HashLink className={classes.backTopContainer}  to="/overall#top" >
-                    <Typography className={classes.backTopText}>
-                        Back to the Top
-                    </Typography>
-                </HashLink>
-
-
-            </div>
         </>
 
     )

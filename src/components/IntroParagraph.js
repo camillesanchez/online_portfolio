@@ -9,26 +9,25 @@ import parse from "html-react-parser";
  // CSS Styles
  const useStyles = makeStyles(theme=>({
     textContainer: {
-        height: "20vh", 
+        height: "20%", 
         width: "100vw", 
         zIndex: "1",
-        "& .topBottomContainers": {
-            height: "15%",
-            background: "yellow"
-        },
-        "& .centerContainer": {
-            "& .textBox" : {
-                position: "flex",
-                [theme.breakpoints.up("md")]: {
-                    padding: "0 5%"
+        padding: "2% 0",
+        // background: "red",
+        "& .textBox" : {
+            position: "flex",
+            [theme.breakpoints.up("md")]: {
+                padding: "0 5%"
+            },
+            "& .introText": {
+                fontSize: "16.5px",
+                textAlign: "left",
+                [theme.breakpoints.down("md")]: {
+                    fontSize: "14px",
                 },
-                "& .introText": {
-                    fontSize: "16.5px",
-                    textAlign: "left",
-                    [theme.breakpoints.down("sm")]: {
-                        fontSize: "11px",
-                    },
-                }
+                [theme.breakpoints.down("xs")]: {
+                    fontSize: "11px",
+                },
             }
         }
     }
@@ -42,10 +41,7 @@ const IntroParagraph = (props) => {
     return (
         <>
             <div className={classes.textContainer} >
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
-                </Grid>
-                <Grid container className="centerContainer">
+                <Grid container >
                         <Grid item xs={2} />
                         <Grid item xs={8} className="textBox">
                             <Typography className="introText">
@@ -53,9 +49,6 @@ const IntroParagraph = (props) => {
                             </Typography>
                         </Grid>
                         <Grid item xs={2} />
-                </Grid>
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
                 </Grid>
             </div>
             

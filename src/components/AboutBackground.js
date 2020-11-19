@@ -21,25 +21,22 @@ import {
  // CSS Styles
  const useStyles = makeStyles(theme=>({
     downloadContainer: {
-        height: "20vh", 
+        // display: "inline-block",
+        height: "20%", 
+        padding: "2% 0 0%",
+        // background: "pink",
         width: "100vw", 
         zIndex: "1",
-        "& .topBottomContainers": {
-            height: "15%",
-            background: "orange"
-        },
-        "& .centerContainer": {
-            "& .textBox" : {
-                position: "flex",
-                [theme.breakpoints.up("md")]: {
-                    padding: "0 5%"
-                },
-                "& .downloadText": {
-                    textAlign: "left",
-                    fontSize: "13px",
-                    [theme.breakpoints.down("sm")]: {
-                        fontSize: "11px",
-                    }
+        "& .textBox" : {
+            position: "flex",
+            [theme.breakpoints.up("md")]: {
+                padding: "0 5%"
+            },
+            "& .downloadText": {
+                textAlign: "left",
+                fontSize: "13px",
+                [theme.breakpoints.down("sm")]: {
+                    fontSize: "11px",
                 }
             }
         }
@@ -84,10 +81,7 @@ const AboutBackground = () => {
 
             {/* Download PDFs */}
             <div className={classes.downloadContainer} >
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
-                </Grid>
-                <Grid container className="centerContainer">
+                <Grid container >
                         <Grid item xs={2} />
                         <Grid item xs={8} className="textBox">
                             <Typography className="downloadText">
@@ -104,9 +98,6 @@ const AboutBackground = () => {
                             ))}
                         </Grid>
                         <Grid item xs={2} />
-                </Grid>
-                <Grid container className="topBottomContainers" >
-                    <Grid item xs={12} />
                 </Grid>
             </div>
         </>
