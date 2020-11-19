@@ -111,7 +111,6 @@ const useStyles = makeStyles(theme=>({
                 }
             },
             "& .insideMenu": {
-                background: "orange",
                 "& .menuLinks": {
                     textDecoration: "none",
                     marginLeft: "2%",
@@ -121,19 +120,13 @@ const useStyles = makeStyles(theme=>({
                         display: "inline-block",
                         marginBottom: "2%",
                         [theme.breakpoints.up("lg")]: {
-                            // background: "pink",
                             fontSize: "40px",
-                            color: "yellow",
                         },
                         [theme.breakpoints.down("sm")]: {
-                            // background: "pink",
                             fontSize: "60px",
-                            color: "red",
                         },
                         [theme.breakpoints.down("xs")]: {
-                            // background: "pink",
                             fontSize: "30px",
-                            color: "purple",
                         } 
                     }
                 },
@@ -143,14 +136,12 @@ const useStyles = makeStyles(theme=>({
                     marginRight: "3%",
                     display: "inline",
                     [theme.breakpoints.down("sm")]: {
-                        // background: "orange",
                         fontSize: "15px",
                     } 
                 }
             }
         },
         "& .emailBlock": {
-            // background: "orange",
             paddingBottom: "10%",
             "& .line": {
                 color: "white",
